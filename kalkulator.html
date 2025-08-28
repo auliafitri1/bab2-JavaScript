@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Aul</title>
+</head>
+<body>
+  <h2>Kalkulator Aul</h2>
+
+  <!-- Input nilai pertama -->
+  <label for="nilai1">Nilai 1:</label>
+  <input type="number" id="nilai1" placeholder="Masukkan angka pertama"> <!--placeholder= untuk menampilkan text-->
+  <br><br>
+
+  <!-- Input nilai kedua -->
+  <label for="nilai2">Nilai 2:</label>
+  <input type="number" id="nilai2" placeholder="Masukkan angka kedua">
+  <br><br> <!--pindah baris-->
+
+  <!-- pilihan operasi (+, -, ×, ÷) -->
+  <label for="operasi">Operasi:</label>
+  <select id="operasi"> <!--kotak pilihan-->
+    <option value="+">+</option> <!--untuk menyediakan pilihan-->
+    <option value="-">-</option>
+    <option value="*">×</option>
+    <option value="/">÷</option>
+  </select>
+  <br><br>
+
+  <!-- Tempat menampilkan hasil -->
+  <label>Hasil:</label>
+  <span id="hasil">...</span>
+  <br><br>
+
+  <!-- Tombol untuk memproses perhitungan -->
+  <button onclick="proses()">PROSES</button><!--BUTTON ONCLICK ketika kita mengeklik 1 x bisa mengeluarkan hasil-->
+
+  <script>
+    function proses() {
+      // Ambil nilai dari input
+      let a = parseFloat(document.getElementById("nilai1").value);
+      let b = parseFloat(document.getElementById("nilai2").value);
+      let op = document.getElementById("operasi").value;
+      let hasil = 0;
+
+      // Validasi: kalau input kosong / bukan angka
+      if (isNaN(a) || isNaN(b)) {
+        document.getElementById("hasil").innerText = "⚠ Error!";
+        return;
+      }
+
+      // proses +-*/
+      switch (op) { <!--pilih operasi sesuai nilai dari <select id="operasi">.-->
+        case '+':   
+          hasil = a + b;  // penjumlahan
+          break;
+        case '-':
+          hasil = a - b;  // pengurangan
+          break;
+        case '*':
+          hasil = a * b;  // perkalian
+          break;
+        case '/':
+          hasil = b !== 0 ? a / b : "⚠ Tidak bisa dibagi 0!"; // pembagian tidak engan 0
+          break;
+      }
+      // acsesetiap operasi punya blok kode sendiri.//
+
+      // Tampilkan hasil ke <span id="hasil">
+      document.getElementById("hasil").innerText = hasil;
+    }
+  </script>
+</body>
+</html>

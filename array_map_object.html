@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const mahasiswas = [
+ {
+ nama: "Eka",
+ umur: 19,
+ jurusan: "Teknik Informatika"
+ },
+ {
+ nama: "Lisa",
+ umur: 18,
+ jurusan: "Sistem Informasi"
+ },
+ {
+ nama: "Rudi",
+ umur: 19,
+ jurusan: "Teknik Elektro"
+ }
+ ];
+
+ const prosesMahasiswa = (mahasiswa) =>
+ `<p>${mahasiswa.nama} (${mahasiswa.umur}), ${mahasiswa.jurusan}</p>`;
+
+ const formatMahasiswas = mahasiswas.map(prosesMahasiswa);
+
+ console.log(formatMahasiswas);
+
+ // [
+ // "<p>Eka (19), Teknik Informatika</p>",
+ // "<p>Lisa (18), Sistem Informasi</p>",
+ // "<p>Rudi (19), Teknik Elektro</p>"
+ // ]
+    </script>
+</body>
+</html>
